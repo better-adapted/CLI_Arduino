@@ -1,5 +1,7 @@
 #include "CLI.h"
 
+#include <Arduino.h>
+
 int32_t CLI_Scan_INT32_Setting(Stream *Port, String pInput, String pCMD, int32_t *pValue, int32_t pMin, int32_t pMax, uint32_t pBase,String pOutputPrompt)
 {	
 	int ret_val = 0;
