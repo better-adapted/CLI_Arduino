@@ -15,5 +15,5 @@ uint32_t CLI_Scan_UINT32_Setting(Stream *Port, String pInput, String pCMD, uint3
 uint16_t CLI_Scan_UINT16_Setting(Stream *Port, String pInput, String pCMD, uint16_t *pValue, uint32_t pMin, uint16_t pMax, uint32_t pBase, String pOutputPrompt);
 uint8_t CLI_Scan_UINT8_Setting(Stream *Port, String pInput, String pCMD, uint8_t *pValue, uint32_t pMin, uint8_t pMax, uint32_t pBase, String pOutputPrompt);
 String Cert_View(const char* pCert);
-int CLI_Cert_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len);
-int CLI_String_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len);
+int CLI_Cert_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len,String pPrefix);
+int CLI_String_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len,String pPrefix);

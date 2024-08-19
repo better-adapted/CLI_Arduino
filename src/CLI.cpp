@@ -423,7 +423,7 @@ String Cert_View(const char* pCert)
 	return temp + temp_c;
 }
 
-int CLI_Cert_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len)
+int CLI_Cert_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len,String pPrefix)
 {
 	int index = pName.length();
 	bool echo_value = false;
@@ -448,7 +448,7 @@ int CLI_Cert_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarg
 
 	if(echo_value)
 	{
-		pSerialPort->printf("%s=%s\r\n", pName.c_str(),Cert_View(pTarget).c_str());
+		pSerialPort->printf("%s%s=%s\r\n",pPrefix.c_str(), pName.c_str(),Cert_View(pTarget).c_str());
 		pSerialPort->println("OK");
 	}
 
@@ -459,7 +459,7 @@ int CLI_Cert_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarg
 }
 
 
-int CLI_String_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len)
+int CLI_String_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len,String pPrefix)
 {
 	int index = pName.length();
 	bool echo_value = false;
@@ -484,7 +484,7 @@ int CLI_String_Setting(Stream *pSerialPort, String pInput,String pName,char *pTa
 
 	if(echo_value)
 	{
-		pSerialPort->printf("%s:\r\n%s\r\n", pName.c_str(),pTarget);
+		pSerialPort->printf("%s%s:\r\n%s\r\n",pPrefix.c_str(), pName.c_str(),pTarget);
 		pSerialPort->println("OK");
 	}
 
