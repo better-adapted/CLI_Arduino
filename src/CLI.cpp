@@ -2,7 +2,7 @@
 
 #include <Arduino.h>
 
-float CLI_Scan_float_Setting(Stream *Port, String pInput, String pCMD, float *pValue, float pMin, float pMax,const char* pFormat,String pOutputPrompt)
+float CLI_Scan_float_Setting(Stream *Stream, String pInput, String pCMD, float *pValue, float pMin, float pMax,const char* pFormat,String pOutputPrompt)
 {
 	int ret_val = 0;
 
@@ -58,18 +58,18 @@ float CLI_Scan_float_Setting(Stream *Port, String pInput, String pCMD, float *pV
 
 		if (echo_value)
 		{
-			Port->print(pOutputPrompt);
-			Port->print(pCMD);
-			Port->print("=");
-			Port->printf(pFormat,*pValue);
-			Port->println(ResponseAppendString);
+			Stream->print(pOutputPrompt);
+			Stream->print(pCMD);
+			Stream->print("=");
+			Stream->printf(pFormat,*pValue);
+			Stream->println(ResponseAppendString);
 		}
 	}
 
 	return ret_val;
 }
 
-int32_t CLI_Scan_INT32_Setting(Stream *Port, String pInput, String pCMD, int32_t *pValue, int32_t pMin, int32_t pMax, uint32_t pBase,String pOutputPrompt)
+int32_t CLI_Scan_INT32_Setting(Stream *Stream, String pInput, String pCMD, int32_t *pValue, int32_t pMin, int32_t pMax, uint32_t pBase,String pOutputPrompt)
 {	
 	int ret_val = 0;
 	
@@ -125,18 +125,18 @@ int32_t CLI_Scan_INT32_Setting(Stream *Port, String pInput, String pCMD, int32_t
 		
 		if (echo_value)
 		{
-			Port->print(pOutputPrompt);
-			Port->print(pCMD);
-			Port->print("=");
-			Port->print(*pValue, pBase);
-			Port->println(ResponseAppendString);
+			Stream->print(pOutputPrompt);
+			Stream->print(pCMD);
+			Stream->print("=");
+			Stream->print(*pValue, pBase);
+			Stream->println(ResponseAppendString);
 		}		
 	}
 		
 	return ret_val;
 }
 
-int16_t CLI_Scan_INT16_Setting(Stream *Port, String pInput, String pCMD, int16_t *pValue, int16_t pMin, int16_t pMax, uint32_t pBase,String pOutputPrompt)
+int16_t CLI_Scan_INT16_Setting(Stream *Stream, String pInput, String pCMD, int16_t *pValue, int16_t pMin, int16_t pMax, uint32_t pBase,String pOutputPrompt)
 {
 	int ret_val = 0;
 
@@ -192,18 +192,18 @@ int16_t CLI_Scan_INT16_Setting(Stream *Port, String pInput, String pCMD, int16_t
 
 		if (echo_value)
 		{
-			Port->print(pOutputPrompt);
-			Port->print(pCMD);
-			Port->print("=");
-			Port->print(*pValue, pBase);
-			Port->println(ResponseAppendString);
+			Stream->print(pOutputPrompt);
+			Stream->print(pCMD);
+			Stream->print("=");
+			Stream->print(*pValue, pBase);
+			Stream->println(ResponseAppendString);
 		}
 	}
 
 	return ret_val;
 }
 
-uint32_t CLI_Scan_UINT32_Setting(Stream *Port, String pInput, String pCMD, uint32_t *pValue, uint32_t pMin, uint32_t pMax, uint32_t pBase, String pOutputPrompt)
+uint32_t CLI_Scan_UINT32_Setting(Stream *Stream, String pInput, String pCMD, uint32_t *pValue, uint32_t pMin, uint32_t pMax, uint32_t pBase, String pOutputPrompt)
 {	
 	int ret_val = 0;
 	
@@ -259,18 +259,18 @@ uint32_t CLI_Scan_UINT32_Setting(Stream *Port, String pInput, String pCMD, uint3
 		
 		if (echo_value)
 		{
-			Port->print(pOutputPrompt);			
-			Port->print(pCMD);
-			Port->print("=");
-			Port->print(*pValue, pBase);
-			Port->println(ResponseAppendString);			
+			Stream->print(pOutputPrompt);			
+			Stream->print(pCMD);
+			Stream->print("=");
+			Stream->print(*pValue, pBase);
+			Stream->println(ResponseAppendString);			
 		}		
 	}
 		
 	return ret_val;
 }
 
-uint16_t CLI_Scan_UINT16_Setting(Stream *Port, String pInput, String pCMD, uint16_t *pValue, uint32_t pMin, uint16_t pMax, uint32_t pBase,String pOutputPrompt)
+uint16_t CLI_Scan_UINT16_Setting(Stream *Stream, String pInput, String pCMD, uint16_t *pValue, uint32_t pMin, uint16_t pMax, uint32_t pBase,String pOutputPrompt)
 {	
 	int ret_val = 0;
 	
@@ -326,18 +326,18 @@ uint16_t CLI_Scan_UINT16_Setting(Stream *Port, String pInput, String pCMD, uint1
 		
 		if (echo_value)
 		{
-			Port->print(pOutputPrompt);			
-			Port->print(pCMD);
-			Port->print("=");
-			Port->print(*pValue, pBase);
-			Port->println(ResponseAppendString);			
+			Stream->print(pOutputPrompt);			
+			Stream->print(pCMD);
+			Stream->print("=");
+			Stream->print(*pValue, pBase);
+			Stream->println(ResponseAppendString);			
 		}		
 	}
 		
 	return ret_val;
 }
 
-uint8_t CLI_Scan_UINT8_Setting(Stream *Port, String pInput, String pCMD, uint8_t *pValue, uint32_t pMin, uint8_t pMax, uint32_t pBase, String pOutputPrompt)
+uint8_t CLI_Scan_UINT8_Setting(Stream *Stream, String pInput, String pCMD, uint8_t *pValue, uint32_t pMin, uint8_t pMax, uint32_t pBase, String pOutputPrompt)
 {	
 	int ret_val = 0;
 	
@@ -393,11 +393,11 @@ uint8_t CLI_Scan_UINT8_Setting(Stream *Port, String pInput, String pCMD, uint8_t
 		
 		if (echo_value)
 		{
-			Port->print(pOutputPrompt);			
-			Port->print(pCMD);
-			Port->print("=");
-			Port->print(*pValue, pBase);
-			Port->println(ResponseAppendString);			
+			Stream->print(pOutputPrompt);			
+			Stream->print(pCMD);
+			Stream->print("=");
+			Stream->print(*pValue, pBase);
+			Stream->println(ResponseAppendString);			
 		}		
 	}
 		
@@ -423,14 +423,17 @@ String Cert_View(const char* pCert)
 	return temp + temp_c;
 }
 
-int CLI_Cert_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len,String pPrefix)
+int CLI_Cert_Setting(Stream *pStream, String pInput,String pCMD,char *pValue,int len,String pPrefix)
 {
-	int index = pName.length();
+	int index = pCMD.length();
 	bool echo_value = false;
 	bool processed = false;
-
-	if(pInput.startsWith(pName))
+	
+	if(pInput.startsWith(pCMD))
 	{
+//		pStream->printf("pPrefix=%s,pInput=%s,pCMD=%s\r\n",pPrefix.c_str(), pInput.c_str(), pCMD.c_str());
+//		pStream->printf("index=%d,%c\r\n",index,pInput.charAt(index));	
+
 		if (pInput[index] == '?')
 		{
 			echo_value=true;
@@ -440,16 +443,16 @@ int CLI_Cert_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarg
 		if (pInput[index] == '=')
 		{
 			echo_value=true;
-			String temp = pInput.substring(pName.length()+1);
-			strncpy(pTarget,temp.c_str(),len-1);
+			String temp = pInput.substring(pCMD.length()+1);
+			strncpy(pValue,temp.c_str(),len-1);
 			processed=1;
 		}
 	}
 
 	if(echo_value)
 	{
-		pSerialPort->printf("%s%s=%s\r\n",pPrefix.c_str(), pName.c_str(),Cert_View(pTarget).c_str());
-		pSerialPort->println("OK");
+		pStream->printf("%s%s=%s\r\n",pPrefix.c_str(), pCMD.c_str(),Cert_View(pValue).c_str());
+		pStream->println("OK");
 	}
 
 	if(processed)
@@ -459,14 +462,17 @@ int CLI_Cert_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarg
 }
 
 
-int CLI_String_Setting(Stream *pSerialPort, String pInput,String pName,char *pTarget,int len,String pPrefix)
+int CLI_String_Setting(Stream *Stream, String pInput,String pCMD,char *pValue,int len,String pPrefix)
 {
-	int index = pName.length();
+	int index = pCMD.length();
 	bool echo_value = false;
 	bool processed = false;
-
-	if(pInput.startsWith(pName))
+	
+	if(pInput.startsWith(pCMD))
 	{
+//		pSerialPort->printf("pPrefix=%s,pInput=%s,pCmd=%s\r\n",pPrefix.c_str(), pInput.c_str(), pCMD.c_str());
+//		pSerialPort->printf("index=%d,%c\r\n",index,pInput.charAt(index));
+
 		if (pInput[index] == '?')
 		{
 			echo_value=true;
@@ -476,16 +482,16 @@ int CLI_String_Setting(Stream *pSerialPort, String pInput,String pName,char *pTa
 		if (pInput[index] == '=')
 		{
 			echo_value=true;
-			String temp = pInput.substring(pName.length()+1);
-			strncpy(pTarget,temp.c_str(),len-1);
+			String temp = pInput.substring(pCMD.length()+1);
+			strncpy(pValue,temp.c_str(),len-1);
 			processed=1;
 		}
 	}
 
 	if(echo_value)
 	{
-		pSerialPort->printf("%s%s:\r\n%s\r\n",pPrefix.c_str(), pName.c_str(),pTarget);
-		pSerialPort->println("OK");
+		Stream->printf("%s%s:\r\n%s\r\n",pPrefix.c_str(), pCMD.c_str(),pValue);
+		Stream->println("OK");
 	}
 
 	if(processed)
