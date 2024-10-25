@@ -61,7 +61,12 @@ float CLI_Scan_float_Setting(Stream *Stream, String pInput, String pCMD, float *
 			Stream->print(pOutputPrompt);
 			Stream->print(pCMD);
 			Stream->print("=");
-			Stream->printf(pFormat,*pValue);
+			{
+				//Stream->printf(pFormat,*pValue);
+				char temp[100];
+				snprintf(temp,sizeof(temp),pFormat,*pValue);
+				Stream->print(temp);
+			}
 			Stream->println(ResponseAppendString);
 		}
 	}
@@ -431,9 +436,6 @@ int CLI_Cert_Setting(Stream *pStream, String pInput,String pCMD,char *pValue,int
 	
 	if(pInput.startsWith(pCMD))
 	{
-//		pStream->printf("pPrefix=%s,pInput=%s,pCMD=%s\r\n",pPrefix.c_str(), pInput.c_str(), pCMD.c_str());
-//		pStream->printf("index=%d,%c\r\n",index,pInput.charAt(index));	
-
 		if (pInput[index] == '?')
 		{
 			echo_value=true;
@@ -451,7 +453,11 @@ int CLI_Cert_Setting(Stream *pStream, String pInput,String pCMD,char *pValue,int
 
 	if(echo_value)
 	{
-		pStream->printf("%s%s=%s\r\n",pPrefix.c_str(), pCMD.c_str(),Cert_View(pValue).c_str());
+		pStream->print(pPrefix);
+		pStream->print(pCMD);
+		pStream->print("=");
+		pStream->print(Cert_View(pValue));
+		pStream->println();
 		pStream->println("OK");
 	}
 
@@ -470,9 +476,6 @@ int CLI_String_Setting(Stream *Stream, String pInput,String pCMD,char *pValue,in
 	
 	if(pInput.startsWith(pCMD))
 	{
-//		pSerialPort->printf("pPrefix=%s,pInput=%s,pCmd=%s\r\n",pPrefix.c_str(), pInput.c_str(), pCMD.c_str());
-//		pSerialPort->printf("index=%d,%c\r\n",index,pInput.charAt(index));
-
 		if (pInput[index] == '?')
 		{
 			echo_value=true;
@@ -490,7 +493,11 @@ int CLI_String_Setting(Stream *Stream, String pInput,String pCMD,char *pValue,in
 
 	if(echo_value)
 	{
-		Stream->printf("%s%s:\r\n%s\r\n",pPrefix.c_str(), pCMD.c_str(),pValue);
+		Stream->print(pPrefix);
+		Stream->print(pCMD);
+		Stream->println(":");
+		Stream->print(*pValue);
+		Stream->println();
 		Stream->println("OK");
 	}
 
