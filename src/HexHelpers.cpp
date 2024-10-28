@@ -78,11 +78,11 @@ byte HH_hex_to_byte(const char *s)
 	return a;
 }
 
-int HH_String_Hex_to_Bytes(char *Buffer, uint8_t *Bytes,int pSize)
+void HH_String_Hex_to_Bytes(char *Buffer, uint8_t *Bytes,int pSize)
 {	
 	for(int x = 0;x<pSize;x++)
 	{
-		Bytes[x] = HH_hex_to_byte((char *)Buffer[x*2]);
+		Bytes[x] = (byte)HH_hex_to_byte((const char *)Buffer[x*2]);
 	}
 }
 
